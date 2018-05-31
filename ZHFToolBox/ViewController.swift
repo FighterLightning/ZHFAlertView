@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var popRadioButtonView: PopRadioButtonView = PopRadioButtonView()
     var popCheckboxButtonView: PopCheckboxButtonView = PopCheckboxButtonView()
     var popTopOrBottomOutView: PopTopOrBottomOutView = PopTopOrBottomOutView()
+    var popSelectColorView: PopSelectColorView = PopSelectColorView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "自定义几种提示框"
@@ -34,7 +35,8 @@ class ViewController: UIViewController {
         "提示框由小变大弹出（单选按钮）",
         "提示框由小变大弹出（多选按钮）",
         "商品落入盒子的效果",
-        "商品弹出盒子的效果",]
+        "商品弹出盒子的效果",
+        "有序弹出一堆框",]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -116,12 +118,19 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             self.popCheckboxButtonView.delegate = self
         }
         else if indexPath.row == 7{
+            //从下向上
            self.popTopOrBottomOutView.topOrBottomViewStartFrame = CGRect.init(x: 25, y: ScreenHeight, width: ScreenWidth - 50, height: 500)
            self.popTopOrBottomOutView.addAnimateFromBottom()
         }
         else if indexPath.row == 8{
+            //从上向下
             self.popTopOrBottomOutView.topOrBottomViewStartFrame = CGRect.init(x: 25, y: -ScreenHeight, width: ScreenWidth - 50, height: 500)
             self.popTopOrBottomOutView.addAnimateFromTop()
+        }
+        else if indexPath.row == 9{
+            //有序弹出一堆框
+            self.popSelectColorView.addAnimate()
+            self.popSelectColorView.delegate = self;
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -155,7 +164,7 @@ extension ViewController{
        self.popTextView.tapBtnAndcancelBtnClick()
     }
 }
-extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate{
+extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSelectColorViewDelegate{
     func selectBtnMessage(content: String) {
         self.dataMarr.replaceObject(at: 5, with: content)
         self.popRadioButtonView.tapBtnAndcancelBtnClick()
@@ -172,5 +181,12 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         let indexPath: IndexPath = NSIndexPath.init(row: 6, section: 0) as IndexPath
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
+    func selectBtnTag(btnTag:NSInteger) {
+        self.dataMarr.replaceObject(at: 9, with: "选中按钮的tag为\(btnTag)")
+        let indexPath: IndexPath = NSIndexPath.init(row: 9, section: 0) as IndexPath
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+    }
+    
+    
 }
 

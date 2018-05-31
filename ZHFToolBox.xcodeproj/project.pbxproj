@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E319919C20BE7DF9005A7A48 /* PopSelectColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319919B20BE7DF9005A7A48 /* PopSelectColorView.swift */; };
 		E35BB43720A3D63E007AFD04 /* TwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43620A3D63E007AFD04 /* TwoVC.swift */; };
 		E35BB43920A3DB42007AFD04 /* PopTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43820A3DB42007AFD04 /* PopTextView.swift */; };
 		E35BB43B20A3EF29007AFD04 /* PopTopOrBottomOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43A20A3EF29007AFD04 /* PopTopOrBottomOutView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E319919B20BE7DF9005A7A48 /* PopSelectColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSelectColorView.swift; sourceTree = "<group>"; };
 		E35BB43620A3D63E007AFD04 /* TwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoVC.swift; sourceTree = "<group>"; };
 		E35BB43820A3DB42007AFD04 /* PopTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTextView.swift; sourceTree = "<group>"; };
 		E35BB43A20A3EF29007AFD04 /* PopTopOrBottomOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTopOrBottomOutView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				E35BB43C20A41729007AFD04 /* PopRadioButtonView.swift */,
 				E3A47BA720A4231900567962 /* PopCheckboxButtonView.swift */,
 				E35BB43A20A3EF29007AFD04 /* PopTopOrBottomOutView.swift */,
+				E319919B20BE7DF9005A7A48 /* PopSelectColorView.swift */,
 			);
 			path = ZHFSubToolBox;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E35BB43720A3D63E007AFD04 /* TwoVC.swift in Sources */,
 				E3A47BA820A4231900567962 /* PopCheckboxButtonView.swift in Sources */,
 				E36C13B920A2A8080043DACF /* ZHFAlertControllerTool.swift in Sources */,
+				E319919C20BE7DF9005A7A48 /* PopSelectColorView.swift in Sources */,
 				E35BB43920A3DB42007AFD04 /* PopTextView.swift in Sources */,
 				E36C13BB20A2C6120043DACF /* ZHFColor.swift in Sources */,
 				E36C138A20A2A6570043DACF /* ViewController.swift in Sources */,
