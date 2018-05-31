@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     var popRadioButtonView: PopRadioButtonView = PopRadioButtonView()
     var popCheckboxButtonView: PopCheckboxButtonView = PopCheckboxButtonView()
     var popTopOrBottomOutView: PopTopOrBottomOutView = PopTopOrBottomOutView()
-    var popSelectColorView: PopSelectColorView = PopSelectColorView()
+    var popSomeColorView: PopSomeColorView = PopSomeColorView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "自定义几种提示框"
@@ -129,8 +129,8 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
         }
         else if indexPath.row == 9{
             //有序弹出一堆框
-            self.popSelectColorView.addAnimate()
-            self.popSelectColorView.delegate = self;
+            self.popSomeColorView.addAnimate()
+            self.popSomeColorView.delegate = self;
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -164,7 +164,7 @@ extension ViewController{
        self.popTextView.tapBtnAndcancelBtnClick()
     }
 }
-extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSelectColorViewDelegate{
+extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSomeColorViewDelegate{
     func selectBtnMessage(content: String) {
         self.dataMarr.replaceObject(at: 5, with: content)
         self.popRadioButtonView.tapBtnAndcancelBtnClick()
@@ -186,7 +186,5 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         let indexPath: IndexPath = NSIndexPath.init(row: 9, section: 0) as IndexPath
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
-    
-    
 }
 
