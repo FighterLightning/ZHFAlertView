@@ -10,8 +10,8 @@
     https://github.com/FighterLightning/ZHFToolBox.git
 https://www.jianshu.com/p/88420bc4d32d
  */
+/*弹框的基础图*/
 import UIKit
-
 class PopSmallChangeBigFatherView: UIView ,UIGestureRecognizerDelegate{
     //白色view用来装一些控件
     var WhiteView: UIView =  UIView()

@@ -10,7 +10,7 @@
     https://github.com/FighterLightning/ZHFToolBox.git
     https://www.jianshu.com/p/88420bc4d32d
  */
-
+/*弹出一个多选框*/
 import UIKit
 protocol PopCheckboxButtonViewDelegate {
     func selectMessage(contentMarr: NSMutableArray)

@@ -10,6 +10,7 @@
     https://github.com/FighterLightning/ZHFToolBox.git
    https://www.jianshu.com/p/88420bc4d32d
  */
+/*弹出一个带图片的提示框*/
 import UIKit
 
 class PopImageView: PopSmallChangeBigFatherView {

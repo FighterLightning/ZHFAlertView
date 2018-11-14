@@ -187,12 +187,14 @@ extension ViewController{
     }
 }
 extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSomeColorViewDelegate,SlideWhiteViewSubViewDelegate{
+      //PopRadioButtonViewDelegate
     func selectBtnMessage(content: String) {
         self.dataMarr.replaceObject(at: 5, with: content)
         self.popRadioButtonView.tapBtnAndcancelBtnClick()
         let indexPath: IndexPath = NSIndexPath.init(row: 5, section: 0) as IndexPath
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
+      //PopCheckboxButtonViewDelegate
     func selectMessage(contentMarr: NSMutableArray) {
         var content :String = ""
         for i in 0 ..< contentMarr.count {
@@ -203,6 +205,7 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         let indexPath: IndexPath = NSIndexPath.init(row: 6, section: 0) as IndexPath
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
+     //PopSomeColorViewDelegate
     func selectBtnTag(btnTag:NSInteger) {
         self.dataMarr.replaceObject(at: 9, with: "选中按钮的tag为\(btnTag)")
         let indexPath: IndexPath = NSIndexPath.init(row: 9, section: 0) as IndexPath
