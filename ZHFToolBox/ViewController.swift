@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var popCheckboxButtonView: PopCheckboxButtonView = PopCheckboxButtonView()
     var popTopOrBottomOutView: PopTopOrBottomOutView = PopTopOrBottomOutView()
     var popSomeColorView: PopSomeColorView = PopSomeColorView()
+    var slideWhiteViewSubView: SlideWhiteViewSubView = SlideWhiteViewSubView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "自定义几种提示框"
@@ -36,7 +37,9 @@ class ViewController: UIViewController {
         "提示框由小变大弹出（多选按钮）",
         "商品落入盒子的效果",
         "商品弹出盒子的效果",
-        "有序弹出一堆框",]
+        "有序弹出一堆框",
+        "弹出一个带列表的左滑框",
+        "弹出一个带列表的右滑框",]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -132,6 +135,25 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             self.popSomeColorView.addAnimate()
             self.popSomeColorView.delegate = self;
         }
+        else if indexPath.row == 10{
+            //弹出一个带列表的左滑框
+            slideWhiteViewSubView.isfromLeft = true //从左边滑出
+            let whiteViewWidth = ScreenWidth*3/4
+            slideWhiteViewSubView.whiteViewStartFrame = CGRect.init(x: -whiteViewWidth, y: 0, width: whiteViewWidth, height: ScreenHeight)
+            slideWhiteViewSubView.whiteViewEndFrame = CGRect.init(x: 0, y: 0, width: whiteViewWidth, height: ScreenHeight)
+            slideWhiteViewSubView.addAnimate()
+            slideWhiteViewSubView.delegate = self
+        }
+        else if indexPath.row == 11{
+            //弹出一个带列表的右滑框
+            slideWhiteViewSubView.isfromLeft = false //从右边滑出
+            let whiteViewWidth = ScreenWidth*4/5
+            let whiteViewHeight = ScreenHeight*8/9
+            slideWhiteViewSubView.whiteViewStartFrame = CGRect.init(x: ScreenWidth, y:(ScreenHeight - whiteViewHeight)/2, width: whiteViewWidth, height: whiteViewHeight)
+            slideWhiteViewSubView.whiteViewEndFrame = CGRect.init(x: ScreenWidth - whiteViewWidth, y: (ScreenHeight - whiteViewHeight)/2, width: whiteViewWidth, height: whiteViewHeight)
+            slideWhiteViewSubView.addAnimate()
+            slideWhiteViewSubView.delegate = self
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
@@ -164,7 +186,7 @@ extension ViewController{
        self.popTextView.tapBtnAndcancelBtnClick()
     }
 }
-extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSomeColorViewDelegate{
+extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSomeColorViewDelegate,SlideWhiteViewSubViewDelegate{
     func selectBtnMessage(content: String) {
         self.dataMarr.replaceObject(at: 5, with: content)
         self.popRadioButtonView.tapBtnAndcancelBtnClick()
@@ -185,6 +207,12 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         self.dataMarr.replaceObject(at: 9, with: "选中按钮的tag为\(btnTag)")
         let indexPath: IndexPath = NSIndexPath.init(row: 9, section: 0) as IndexPath
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+    }
+    //SlideWhiteViewSubViewDelegate
+    func selectMessage(message: String) {
+        let redVC: RedVC = RedVC()
+        redVC.message = message
+        self.navigationController?.pushViewController(redVC, animated: true)
     }
 }
 
