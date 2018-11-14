@@ -21,7 +21,10 @@
 
 7.提示框由小变大弹出（弹出区域放一张显示图片，尾部带两个自定义按钮）
 
-8.剩下的几个是对系统AlertView封装后弹出的效果
+8.弹出侧滑视图（侧滑视图带tableView点击跳转）
+
+9.剩下的几个是对系统AlertView封装后弹出的效果
+
 
 ### 自定义这些弹框的思路：
 
@@ -85,6 +88,8 @@ func addAnimate()
 3.class PopRadioButtonView: PopSmallChangeBigFatherView（弹个单选框、重写override func addAnimate()）在父视图的WhiteView写要弹出的内容
 
 4.class PopCheckboxButtonView: PopSmallChangeBigFatherView（弹个多选框、重写override func addAnimate()）在父视图的WhiteView写要弹出的内容
+
+5.class SlideWhiteViewSubView: SlideView（弹个左右滑视图、重写override func addAnimate()）在父视图的WhiteView写要侧滑展示的内容
 
 ### 四、搞个特殊的（一个类似商品（从盒子里弹出来、从高空掉入盒子）的效果（带回弹效果）PopTopOrBottomOutView这个弹出效果和上面那几个不一样。那就继承UIView，以相同的思路写了。）
 # PS
