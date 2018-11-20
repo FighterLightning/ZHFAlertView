@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     var popTopOrBottomOutView: PopTopOrBottomOutView = PopTopOrBottomOutView()
     var popSomeColorView: PopSomeColorView = PopSomeColorView()
     var slideWhiteViewSubView: SlideWhiteViewSubView = SlideWhiteViewSubView()
+    //拆开一个盒子的动画效果
+    var popAwayOpenView : PopAwayOpenBackGroundView =  PopAwayOpenBackGroundView() //gif背景图
+    var openBoxView : OpenBoxView! //盒子打开动画效果图
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "自定义几种提示框"
@@ -39,7 +42,8 @@ class ViewController: UIViewController {
         "商品弹出盒子的效果",
         "有序弹出一堆框",
         "弹出一个带列表的左滑框",
-        "弹出一个带列表的右滑框",]
+        "弹出一个带列表的右滑框",
+        "弹出一个带有gif背景图的拆产品"]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -154,6 +158,19 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             slideWhiteViewSubView.addAnimate()
             slideWhiteViewSubView.delegate = self
         }
+        else if indexPath.row == 12{
+            //播放gif图
+            self.popAwayOpenView.addAnimate()
+            //当播放GIF图一半时，弹出加载的产品图   1.5 为GIF播放一半所用的时间
+            if #available(iOS 10.0, *) {
+                Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (_) in
+                    self.popGood()
+                })
+            } else {
+                sleep(UInt32(1.5))
+                self.popGood()
+            }
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
@@ -184,6 +201,13 @@ extension ViewController{
     }
     @objc func otherBtn4Click(btn:UIButton){
        self.popTextView.tapBtnAndcancelBtnClick()
+    }
+    //弹出加载的产品图
+    @objc func popGood(){
+        self.openBoxView = OpenBoxView()
+        self.openBoxView.backgroundColor1 = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
+        self.popAwayOpenView.addSubview(self.openBoxView.initPopBackGroundView())
+        self.openBoxView.addAnimate()
     }
 }
 extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegate,PopSomeColorViewDelegate,SlideWhiteViewSubViewDelegate{

@@ -27,6 +27,10 @@
 		E37DFC35219BFFA800DCC452 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DFC33219BFFA800DCC452 /* SlideView.swift */; };
 		E37DFC37219BFFD000DCC452 /* RedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37DFC36219BFFD000DCC452 /* RedVC.swift */; };
 		E3A47BA820A4231900567962 /* PopCheckboxButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A47BA720A4231900567962 /* PopCheckboxButtonView.swift */; };
+		E3F9307E21A3AEFF00259402 /* PopBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9307B21A3AEFF00259402 /* PopBackGroundView.swift */; };
+		E3F9307F21A3AEFF00259402 /* OpenBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9307C21A3AEFF00259402 /* OpenBoxView.swift */; };
+		E3F9308021A3AEFF00259402 /* PopAwayOpenBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */; };
+		E3F9308221A3AF4600259402 /* open_boxA.gif in Resources */ = {isa = PBXBuildFile; fileRef = E3F9308121A3AF4600259402 /* open_boxA.gif */; };
 		E3FB8D1920A2DA3A003237BB /* PopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB8D1820A2DA3A003237BB /* PopImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,10 @@
 		E37DFC33219BFFA800DCC452 /* SlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		E37DFC36219BFFD000DCC452 /* RedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedVC.swift; sourceTree = "<group>"; };
 		E3A47BA720A4231900567962 /* PopCheckboxButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCheckboxButtonView.swift; sourceTree = "<group>"; };
+		E3F9307B21A3AEFF00259402 /* PopBackGroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopBackGroundView.swift; sourceTree = "<group>"; };
+		E3F9307C21A3AEFF00259402 /* OpenBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenBoxView.swift; sourceTree = "<group>"; };
+		E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAwayOpenBackGroundView.swift; sourceTree = "<group>"; };
+		E3F9308121A3AF4600259402 /* open_boxA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = open_boxA.gif; sourceTree = "<group>"; };
 		E3FB8D1820A2DA3A003237BB /* PopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +168,7 @@
 		E36C13B520A2A7000043DACF /* ZHFSubToolBox */ = {
 			isa = PBXGroup;
 			children = (
+				E3F9307A21A3AEFF00259402 /* PopGifOpenBox */,
 				E36C13BA20A2C6120043DACF /* ZHFColor.swift */,
 				E36C13B820A2A8080043DACF /* ZHFAlertControllerTool.swift */,
 				E36C13B620A2A7210043DACF /* PopSmallChangeBigFatherView.swift */,
@@ -173,6 +182,17 @@
 				E37DFC32219BFFA800DCC452 /* SlideWhiteViewSubView.swift */,
 			);
 			path = ZHFSubToolBox;
+			sourceTree = "<group>";
+		};
+		E3F9307A21A3AEFF00259402 /* PopGifOpenBox */ = {
+			isa = PBXGroup;
+			children = (
+				E3F9308121A3AF4600259402 /* open_boxA.gif */,
+				E3F9307B21A3AEFF00259402 /* PopBackGroundView.swift */,
+				E3F9307C21A3AEFF00259402 /* OpenBoxView.swift */,
+				E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */,
+			);
+			path = PopGifOpenBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F9308221A3AF4600259402 /* open_boxA.gif in Resources */,
 				E36C139220A2A6570043DACF /* LaunchScreen.storyboard in Resources */,
 				E36C138F20A2A6570043DACF /* Assets.xcassets in Resources */,
 				E36C138D20A2A6570043DACF /* Main.storyboard in Resources */,
@@ -319,7 +340,10 @@
 				E35BB43920A3DB42007AFD04 /* PopTextView.swift in Sources */,
 				E36C13BB20A2C6120043DACF /* ZHFColor.swift in Sources */,
 				E37DFC35219BFFA800DCC452 /* SlideView.swift in Sources */,
+				E3F9307F21A3AEFF00259402 /* OpenBoxView.swift in Sources */,
+				E3F9307E21A3AEFF00259402 /* PopBackGroundView.swift in Sources */,
 				E37DFC37219BFFD000DCC452 /* RedVC.swift in Sources */,
+				E3F9308021A3AEFF00259402 /* PopAwayOpenBackGroundView.swift in Sources */,
 				E36C138A20A2A6570043DACF /* ViewController.swift in Sources */,
 				E3FB8D1920A2DA3A003237BB /* PopImageView.swift in Sources */,
 				E35BB43B20A3EF29007AFD04 /* PopTopOrBottomOutView.swift in Sources */,
