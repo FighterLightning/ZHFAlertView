@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     //拆开一个盒子的动画效果
     var popAwayOpenView : PopAwayOpenBackGroundView =  PopAwayOpenBackGroundView() //gif背景图
     var openBoxView : OpenBoxView! //盒子打开动画效果图
+    var calendarView: CalendarView = CalendarView()
+    var progressBar: PopProgressBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "自定义几种提示框"
@@ -43,13 +46,14 @@ class ViewController: UIViewController {
         "有序弹出一堆框",
         "弹出一个带列表的左滑框",
         "弹出一个带列表的右滑框",
-        "弹出一个带有gif背景图的拆产品"]
+        "弹出一个带有gif背景图的拆产品",
+        "模拟进度条",]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
         self.view.addSubview(tableView)
         tableView.backgroundColor = ZHFColor.zhff9_backGroundColor
-        tableView.separatorColor = ZHFColor.zhf_strColor(hex: "cccccc")
+        tableView.separatorColor = ZHFColor.initString(hex: "cccccc")
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
@@ -170,6 +174,11 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
                 sleep(UInt32(1.5))
                 self.popGood()
             }
+        }
+        else if indexPath.row == 13{
+            //弹出一个模拟渐变进度条
+            progressBar = PopProgressBar()
+            progressBar.addAnimate(view: progressBar.initPopBackGroundView())
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

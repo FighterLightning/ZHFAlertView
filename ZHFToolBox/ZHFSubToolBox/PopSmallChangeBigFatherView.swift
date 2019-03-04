@@ -5,10 +5,9 @@
 //  Created by 张海峰 on 2018/5/9.
 //  Copyright © 2018年 张海峰. All rights reserved.
 //
-/*该demo是和大家分享一下，在项目中自定义各种弹框的思路，用来支撑自己项目的使用，无论什么样的弹框，只要有思路，
-相信大家都能完美实现。感觉我这个demo对你有启发或者帮助，不妨给个星星吧
+/*该demo是和大家分享一下，在项目中自定义各种弹框的思路，用来支撑自己项目的使用，无论什么样的弹框，只要有思路，相信大家都能完美实现。感觉我这个demo对你有启发或者帮助，不妨给个星星吧
     https://github.com/FighterLightning/ZHFToolBox.git
-https://www.jianshu.com/p/88420bc4d32d
+    https://www.jianshu.com/p/88420bc4d32d
  */
 /*弹框的基础图*/
 import UIKit

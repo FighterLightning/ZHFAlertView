@@ -16,7 +16,7 @@ protocol PopSomeColorViewDelegate {
     func selectBtnTag(btnTag: NSInteger)
 }
 class PopSomeColorView: UIView {
-     var delegate:PopSomeColorViewDelegate?
+    var delegate:PopSomeColorViewDelegate?
     var animateTime:TimeInterval = 0.9 //动画总时长
     var delyTime:CGFloat = 0.1 //每两个动画间隔时长
     var cancelBtn :UIButton = UIButton()
