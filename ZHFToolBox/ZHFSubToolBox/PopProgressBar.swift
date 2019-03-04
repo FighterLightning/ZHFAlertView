@@ -5,22 +5,24 @@
 //  Created by 张海峰 on 2019/3/4.
 //  Copyright © 2019年 张海峰. All rights reserved.
 //
-
+/*该demo是和大家分享一下，在项目中自定义各种弹框的思路，用来支撑自己项目的使用，无论什么样的弹框，只要有思路，
+ 相信大家都能完美实现。感觉我这个demo对你有启发或者帮助，不妨给个星星吧
+ https://github.com/FighterLightning/ZHFToolBox.git
+ 渐变进度条：单独简书连接https://www.jianshu.com/p/d985207dac6b
+ */
 import UIKit
 
 class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
-    //白色view用来装一些控件
-    var progressView: UIView =  UIView()
-    var startValue: CGFloat = 0
-    var endValue: CGFloat = 0
     //背景区域的颜色和透明度
     var backgroundColor1:UIColor  = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.4)
-    var defaultTime:CGFloat = 0.5
-    var hintBtn: UIButton!//提示按钮
-    var displayLink: CADisplayLink!
+    //进度条view
+    var progressView: UIView =  UIView()
+    //提示按钮
+    var hintBtn: UIButton!
+    var beforeValue :CGFloat = 0 //前一个值
+    var displayLink: CADisplayLink! //定时器 承接控制器里的定时器，删除view时保证定时器关闭
     var path: UIBezierPath!
     var progressLayer :CAShapeLayer!
-    
     //初始化视图
     func initPopBackGroundView() -> PopProgressBar {
         self.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
@@ -30,11 +32,12 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         self.addGestureRecognizer(tap)
         return self
     }
-    //弹出的动画效果
+    //弹出View
     func addAnimate(view:PopProgressBar) {
         self.addProgressView()
-    UIApplication.shared.keyWindow?.addSubview(view)
+        UIApplication.shared.keyWindow?.addSubview(view)
     }
+    //添加进度条
     func addProgressView() {
         progressView = UIView.init(frame: CGRect.init(x: 25, y: 290, width: ScreenWidth - 50, height: 15))
         progressView.layer.masksToBounds = true
@@ -49,9 +52,8 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         hintBtn.setTitleColor(UIColor.white, for: UIControl.State.normal)
         self.addSubview(hintBtn)
         self.gradentWith(frame: progressView.frame)
-        displayLink = CADisplayLink.init(target: self, selector: #selector(displayLinkRun))
-        displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.defaultRunLoopMode)
     }
+    //为进度条添加遮罩，及layer
     @objc func gradentWith(frame:CGRect) {
         path = UIBezierPath.init()
         path.stroke()//添加遮罩
@@ -82,32 +84,27 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         pathAnimation.repeatCount = 1
         progressLayer.add(pathAnimation, forKey: "strokeEndAnimation")
     }
-    @objc func displayLinkRun(displayLink:CADisplayLink) {
-        startValue = endValue + 0.001
-        if endValue < 1 {
-            hintBtn.frame = CGRect.init(x: 8 + endValue * progressView.frame.size.width, y: progressView.frame.minY - 30, width: 34, height: 20)
-            hintBtn.setTitle("\(NSInteger(endValue*100))%", for: UIControl.State.normal)
-            self.prossValue(startValue: startValue, endValue: endValue)
+    //当前进度
+    func passValue(currentValue: CGFloat,allValue: CGFloat) {
+        if currentValue < allValue {
+            //当前比例
+            let currentProportion : CGFloat = currentValue/allValue
+            hintBtn.frame = CGRect.init(x: 8 + currentProportion * progressView.frame.size.width, y: progressView.frame.minY - 30, width: 34, height: 20)
+            hintBtn.setTitle("\(NSInteger(currentProportion*100))%", for: UIControl.State.normal)
+            path.move(to: CGPoint.init(x: progressView.frame.size.width * (beforeValue/allValue), y: progressView.frame.size.height/2))
+            path.addLine(to: CGPoint.init(x: progressView.frame.size.width * currentProportion, y: progressView.frame.size.height/2))
+            progressLayer.path = path.cgPath
         }
         else{
-            //上传/下载成功
-            self.stopDisplayLink()
+            //上传/下载成功 隐藏当前状态
             self.tapBtnAndcancelBtnClick()
         }
-         endValue  = startValue;
+        beforeValue = currentValue
     }
-    func prossValue(startValue: CGFloat,endValue: CGFloat){
-        path.move(to: CGPoint.init(x: progressView.frame.size.width * startValue, y: progressView.frame.size.height/2))
-        path.addLine(to: CGPoint.init(x: progressView.frame.size.width * endValue, y: progressView.frame.size.height/2))
-        progressLayer.path = path.cgPath
-    }
-    func stopDisplayLink(){
-        displayLink.invalidate()
-        displayLink = nil
-    }
-    //收回的动画效果
+    //移除或者中断进度
     @objc func tapBtnAndcancelBtnClick() {
         self.removeFromSuperview()
-        stopDisplayLink()
+        displayLink.invalidate()
+        displayLink = nil
     }
 }

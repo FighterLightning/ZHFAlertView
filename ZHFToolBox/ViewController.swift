@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     var popAwayOpenView : PopAwayOpenBackGroundView =  PopAwayOpenBackGroundView() //gif背景图
     var openBoxView : OpenBoxView! //盒子打开动画效果图
     var calendarView: CalendarView = CalendarView()
-    var progressBar: PopProgressBar!
+    var progressBar: PopProgressBar! //进度条
+    var displayLink: CADisplayLink! //定时器
+    var currentValue: CGFloat = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,12 +179,28 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
         }
         else if indexPath.row == 13{
             //弹出一个模拟渐变进度条
+            currentValue = 0
             progressBar = PopProgressBar()
             progressBar.addAnimate(view: progressBar.initPopBackGroundView())
+            displayLink = CADisplayLink.init(target: self, selector: #selector(displayLinkRun))
+            displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.defaultRunLoopMode)
+            progressBar.displayLink = displayLink
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    @objc func displayLinkRun(){
+        if currentValue > 1 {
+            //加载完成 关闭定时器，隐藏进度条
+            displayLink.invalidate()
+            displayLink = nil
+            progressBar.removeFromSuperview()
+        }
+        else{
+           currentValue = currentValue + 0.005;
+           progressBar.passValue(currentValue: currentValue, allValue: 1.0)
+        }
     }
 }
 extension ViewController{
