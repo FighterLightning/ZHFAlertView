@@ -49,7 +49,8 @@ class ViewController: UIViewController {
         "弹出一个带列表的左滑框",
         "弹出一个带列表的右滑框",
         "弹出一个带有gif背景图的拆产品",
-        "模拟进度条",]
+        "模拟进度条",
+        "单选病情",]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -144,6 +145,13 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             //有序弹出一堆框
             self.popSomeColorView.addAnimate()
             self.popSomeColorView.delegate = self;
+            //实现回调，获取回调回来的值 （闭包）
+            self.popSomeColorView.backClosure = {
+                (backStr: String) -> Void in
+                let redVC: RedVC = RedVC()
+                redVC.message = backStr
+                self.navigationController?.pushViewController(redVC, animated: true)
+            }
         }
         else if indexPath.row == 10{
             //弹出一个带列表的左滑框
@@ -185,6 +193,15 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             displayLink = CADisplayLink.init(target: self, selector: #selector(displayLinkRun))
             displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.defaultRunLoopMode)
             progressBar.displayLink = displayLink
+        }
+        else if indexPath.row == 14{
+            let arr = ["心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","心率失常","一度房室传导阻滞","心率失常","心率失常","心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","一度房室传导阻滞","心率失常","心率失常","一度房室传导阻滞","心率失常","心率失常"]
+            let popDiseaseView: PopDiseaseView = PopDiseaseView()
+            popDiseaseView.addWhiteViewContent(arr: arr as NSArray)
+            popDiseaseView.addAnimate(view: popDiseaseView.initPopDiseaseView())
+            popDiseaseView.clickValueClosure { (text) in
+                ZHFLog(message: text)
+            }
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

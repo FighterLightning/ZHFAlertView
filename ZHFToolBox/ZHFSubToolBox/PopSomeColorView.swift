@@ -15,8 +15,13 @@ import UIKit
 protocol PopSomeColorViewDelegate {
     func selectBtnTag(btnTag: NSInteger)
 }
+//定义闭包类型（特定的函数类型函数类型）
+typealias InputClosureType = (String) -> Void
 class PopSomeColorView: UIView {
+    
     var delegate:PopSomeColorViewDelegate?
+    //接收上个页面传过来的闭包块
+    var backClosure: InputClosureType?
     var animateTime:TimeInterval = 0.9 //动画总时长
     var delyTime:CGFloat = 0.1 //每两个动画间隔时长
     var cancelBtn :UIButton = UIButton()
@@ -53,7 +58,6 @@ class PopSomeColorView: UIView {
     func addAnimate(){
     UIApplication.shared.keyWindow?.addSubview(self.initPopSelectColorView())
         self.isHidden = false
-       
         for i in 0 ..< self.btnMarr.count {
             let btn: UIButton = self.btnMarr[i] as! UIButton
             let btnY : CGFloat = btn.frame.origin.y

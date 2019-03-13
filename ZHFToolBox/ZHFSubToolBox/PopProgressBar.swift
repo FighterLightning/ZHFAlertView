@@ -107,4 +107,5 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         displayLink.invalidate()
         displayLink = nil
     }
+   
 }
