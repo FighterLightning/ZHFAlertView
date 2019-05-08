@@ -50,7 +50,8 @@ class ViewController: UIViewController {
         "弹出一个带列表的右滑框",
         "弹出一个带有gif背景图的拆产品",
         "模拟进度条",
-        "单选病情",]
+        "单选病情",
+        "弹出日历",]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -201,6 +202,19 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             popDiseaseView.addAnimate(view: popDiseaseView.initPopDiseaseView())
             popDiseaseView.clickValueClosure { (text) in
                 ZHFLog(message: text)
+            }
+        }
+        else if indexPath.row == 15{
+            let calendarView: ZHFCalendarView = ZHFCalendarView()
+            calendarView.pointColor = ZHFColor.zhf_color(withHex: 0x42D2BE)//大小点颜色
+//            calendarView.bigGreenPoints = [0] //大点数组
+//            calendarView.smallGreenPoints = [0] //小点数组
+            calendarView.addAnimate()
+            //点击的是--年--月--日
+            calendarView.clickValueClosure { [weak self] (text) in
+                let arr = text!.components(separatedBy:"-")
+                ZHFLog(message: "\(arr[0]).\(arr[1]).\(arr[2])")
+              
             }
         }
     }

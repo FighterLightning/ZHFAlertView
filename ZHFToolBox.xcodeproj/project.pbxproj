@@ -10,6 +10,7 @@
 		E319919C20BE7DF9005A7A48 /* PopSomeColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319919B20BE7DF9005A7A48 /* PopSomeColorView.swift */; };
 		E342FCEB22390EC3005E5732 /* PopDiseaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E342FCEA22390EC3005E5732 /* PopDiseaseView.swift */; };
 		E349BBF621B77AE20079A2DF /* ZHFColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349BBF521B77AE20079A2DF /* ZHFColor.swift */; };
+		E34ED7AF22829C73000E4728 /* ZHFCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34ED7AE22829C73000E4728 /* ZHFCalendarView.swift */; };
 		E35BB43720A3D63E007AFD04 /* TwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43620A3D63E007AFD04 /* TwoVC.swift */; };
 		E35BB43920A3DB42007AFD04 /* PopTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43820A3DB42007AFD04 /* PopTextView.swift */; };
 		E35BB43B20A3EF29007AFD04 /* PopTopOrBottomOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BB43A20A3EF29007AFD04 /* PopTopOrBottomOutView.swift */; };
@@ -67,6 +68,7 @@
 		E319919B20BE7DF9005A7A48 /* PopSomeColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSomeColorView.swift; sourceTree = "<group>"; };
 		E342FCEA22390EC3005E5732 /* PopDiseaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDiseaseView.swift; sourceTree = "<group>"; };
 		E349BBF521B77AE20079A2DF /* ZHFColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZHFColor.swift; path = ZHFToolBox/ZHFSubToolBox/ZHFColor.swift; sourceTree = SOURCE_ROOT; };
+		E34ED7AE22829C73000E4728 /* ZHFCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHFCalendarView.swift; sourceTree = "<group>"; };
 		E35BB43620A3D63E007AFD04 /* TwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoVC.swift; sourceTree = "<group>"; };
 		E35BB43820A3DB42007AFD04 /* PopTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTextView.swift; sourceTree = "<group>"; };
 		E35BB43A20A3EF29007AFD04 /* PopTopOrBottomOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTopOrBottomOutView.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E37851EB221EE49C00030CF1 /* CalendarView.swift */,
 				E39B6F29222D035A0018A7F9 /* PopProgressBar.swift */,
 				E342FCEA22390EC3005E5732 /* PopDiseaseView.swift */,
+				E34ED7AE22829C73000E4728 /* ZHFCalendarView.swift */,
 			);
 			path = ZHFSubToolBox;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				E37DFC34219BFFA800DCC452 /* SlideWhiteViewSubView.swift in Sources */,
 				E36C13B720A2A7210043DACF /* PopSmallChangeBigFatherView.swift in Sources */,
 				E35BB43D20A41729007AFD04 /* PopRadioButtonView.swift in Sources */,
+				E34ED7AF22829C73000E4728 /* ZHFCalendarView.swift in Sources */,
 				E35BB43720A3D63E007AFD04 /* TwoVC.swift in Sources */,
 				E3A47BA820A4231900567962 /* PopCheckboxButtonView.swift in Sources */,
 				E36C13B920A2A8080043DACF /* ZHFAlertControllerTool.swift in Sources */,
