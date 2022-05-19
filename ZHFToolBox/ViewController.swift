@@ -51,7 +51,8 @@ class ViewController: UIViewController {
         "弹出一个带有gif背景图的拆产品",
         "模拟进度条",
         "单选病情",
-        "弹出日历",]
+        "弹出日历",
+        "直播消息半透明例子"]
     }
     func addTableView(){
         tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
@@ -216,6 +217,9 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
                 ZHFLog(message: "\(arr[0]).\(arr[1]).\(arr[2])")
               
             }
+        }
+        else if indexPath.row == 16{
+             self.navigationController?.pushViewController(MessgeAlapaTableView.init(), animated: true)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
