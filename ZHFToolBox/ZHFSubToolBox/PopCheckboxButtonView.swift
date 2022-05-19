@@ -47,7 +47,7 @@ class PopCheckboxButtonView: PopSmallChangeBigFatherView {
         for i in 0 ..< contentArr.count{
             let name: String = contentArr[i]
             let nameLenth : CGFloat = CGFloat(name.count * 25)
-            let btn : UIButton = UIButton.init(type: UIButtonType.custom)
+            let btn : UIButton = UIButton.init(type: .custom)
             if x + nameLenth > ScreenWidth - 50{
                 x = 25
                 y = y + 40
@@ -58,25 +58,25 @@ class PopCheckboxButtonView: PopSmallChangeBigFatherView {
             btn.layer.borderColor = ZHFColor.zhf88_contentTextColor.cgColor
             btn.layer.borderWidth = 0.5
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.ultraLight)
-            btn.setTitle(name, for: UIControlState.normal)
-            btn.setTitleColor(ZHFColor.zhf88_contentTextColor, for: UIControlState.normal)
-            btn.setTitle(name, for: UIControlState.selected)
-            btn.setTitleColor(ZHFColor.zhf_selectColor, for: UIControlState.selected)
+            btn.setTitle(name, for: .normal)
+            btn.setTitleColor(ZHFColor.zhf88_contentTextColor, for: .normal)
+            btn.setTitle(name, for: .selected)
+            btn.setTitleColor(ZHFColor.zhf_selectColor, for: .selected)
             x = x + nameLenth + 15
             btn.tag = i
             btn.isSelected = false
-            btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
+            btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
             self.WhiteView.addSubview(btn)
         }
-        trueBtn = UIButton.init(type: UIButtonType.custom)
+        trueBtn = UIButton.init(type: .custom)
         trueBtn.frame = CGRect.init(x:25, y: self.WhiteView.frame.height - 55, width: self.WhiteView.frame.width - 50, height: 40)
         trueBtn.layer.masksToBounds = true
         trueBtn.layer.cornerRadius = 5
         trueBtn.backgroundColor = ZHFColor.orange
-        trueBtn.setTitle("确定", for: UIControlState.normal)
+        trueBtn.setTitle("确定", for: .normal)
         trueBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        trueBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
-        trueBtn.addTarget(self, action: #selector(trueBtnClick), for: UIControlEvents.touchUpInside)
+        trueBtn.setTitleColor(UIColor.white, for: .normal)
+        trueBtn.addTarget(self, action: #selector(trueBtnClick), for: .touchUpInside)
         self.WhiteView.addSubview(trueBtn)
     }
     @objc func btnClick(btn:UIButton){

@@ -32,12 +32,12 @@ class UpDownView: UIView ,UIGestureRecognizerDelegate{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapBtnAndcancelBtnClick))
         tap.delegate = self
         self.addGestureRecognizer(tap)
-        okBtn = UIButton.init(type: UIButtonType.custom)
+        okBtn = UIButton.init(type: .custom)
         okBtn.frame = CGRect.init(x:ScreenWidth - 80, y: 10, width: 60, height: 40)
         okBtn.tag = 1
-        okBtn.setTitle("确定", for: UIControlState.normal)
-        okBtn.setTitleColor(ZHFColor.green, for: UIControlState.normal)
-        okBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: UIControlEvents.touchUpInside)
+        okBtn.setTitle("确定", for: .normal)
+        okBtn.setTitleColor(ZHFColor.green, for: .normal)
+        okBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: .touchUpInside)
         WhiteView.addSubview(okBtn)
         return self
     }

@@ -126,7 +126,7 @@ class TBCalendarAppearStyle: NSObject {
         self.dateBackUnselectColor = UIColor.white
         self.dateBackSelectColor = ZHFColor.zhf_color(withHex: 0xEEEEEE)
         self.isSupportMoreSelect = false;
-        self.dateTitleDescOffset = UIOffsetMake(0, 10);
+        self.dateTitleDescOffset = UIOffset(horizontal: 0, vertical: 10);
         self.headerViewHeihgt = headerViewDateHeight! + headerViewLineHeight! + headerViewWeekHeight!
     }
 }

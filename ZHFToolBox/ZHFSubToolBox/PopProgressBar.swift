@@ -60,7 +60,7 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         progressLayer = CAShapeLayer.init()
         progressLayer.frame = progressView.bounds
         progressLayer.strokeColor = ZHFColor.initString(hex: "0x23D7DE").cgColor
-        progressLayer.lineCap = CAShapeLayerLineCap.init(string: "kCALineCapRound") as String
+        progressLayer.lineCap = CAShapeLayerLineCap.init(rawValue: "kCALineCapRound")
         progressLayer.lineWidth = progressView.frame.size.height //渐变图层
         let grain:CALayer = CALayer.init()
         let gradientLayer: CAGradientLayer = CAGradientLayer.init()
@@ -77,7 +77,7 @@ class PopProgressBar: UIView ,UIGestureRecognizerDelegate {
         progressView.layer.addSublayer(grain)//增加动画
         let pathAnimation : CABasicAnimation = CABasicAnimation.init(keyPath: "strokeEnd")
         pathAnimation.duration = 0;
-        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: "linear")
+        pathAnimation.timingFunction = CAMediaTimingFunction.init(name: .linear)
         pathAnimation.fromValue = NSNumber.init(value: 0.0)
         pathAnimation.toValue = NSNumber.init(value: 1.0)
         pathAnimation.autoreverses = false

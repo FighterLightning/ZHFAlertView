@@ -262,7 +262,7 @@ class TBCalendar: UIView, UICollectionViewDelegate, UICollectionViewDataSource{
     
     func dateByday(day: Int, date: NSDate) -> Date {
         let calendar = NSCalendar.current
-        var comp = calendar.dateComponents([.year, .month, .day], from: date as Date)
+        let comp = calendar.dateComponents([.year, .month, .day], from: date as Date)
         let newComp = NSDateComponents.init()
         newComp.day = day
         newComp.year = comp.year!
@@ -402,7 +402,7 @@ class TBCalendar: UIView, UICollectionViewDelegate, UICollectionViewDataSource{
         let collectFlowLayout = UICollectionViewFlowLayout.init()
         collectFlowLayout.minimumLineSpacing = 0.0;
         collectFlowLayout.minimumInteritemSpacing = 0.0;
-        collectFlowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        collectFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         return collectFlowLayout
     }
     

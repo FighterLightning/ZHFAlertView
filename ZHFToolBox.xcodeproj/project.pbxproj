@@ -45,6 +45,10 @@
 		E3F9308021A3AEFF00259402 /* PopAwayOpenBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */; };
 		E3F9308221A3AF4600259402 /* open_boxA.gif in Resources */ = {isa = PBXBuildFile; fileRef = E3F9308121A3AF4600259402 /* open_boxA.gif */; };
 		E3FB8D1920A2DA3A003237BB /* PopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB8D1820A2DA3A003237BB /* PopImageView.swift */; };
+		FA235D6F283628530071C337 /* NormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA235D6B283628530071C337 /* NormalCell.swift */; };
+		FA235D70283628530071C337 /* MessgeShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA235D6C283628530071C337 /* MessgeShowVC.swift */; };
+		FA235D71283628530071C337 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA235D6D283628530071C337 /* NormalCell.xib */; };
+		FA235D72283628530071C337 /* TopTranslucentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA235D6E283628530071C337 /* TopTranslucentTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,10 @@
 		E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAwayOpenBackGroundView.swift; sourceTree = "<group>"; };
 		E3F9308121A3AF4600259402 /* open_boxA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = open_boxA.gif; sourceTree = "<group>"; };
 		E3FB8D1820A2DA3A003237BB /* PopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopImageView.swift; sourceTree = "<group>"; };
+		FA235D6B283628530071C337 /* NormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalCell.swift; sourceTree = "<group>"; };
+		FA235D6C283628530071C337 /* MessgeShowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessgeShowVC.swift; sourceTree = "<group>"; };
+		FA235D6D283628530071C337 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		FA235D6E283628530071C337 /* TopTranslucentTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTranslucentTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				E3A1059C222E09E20071FF9E /* test.json */,
+				FA235D6A283628530071C337 /* TopTopTranslucentTableView */,
 				E37BC5962223BCAA00503F25 /* TBCalendar */,
 				E36C13B520A2A7000043DACF /* ZHFSubToolBox */,
 				E36C138720A2A6570043DACF /* AppDelegate.swift */,
@@ -240,6 +249,17 @@
 				E3F9307D21A3AEFF00259402 /* PopAwayOpenBackGroundView.swift */,
 			);
 			path = PopGifOpenBox;
+			sourceTree = "<group>";
+		};
+		FA235D6A283628530071C337 /* TopTopTranslucentTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FA235D6B283628530071C337 /* NormalCell.swift */,
+				FA235D6C283628530071C337 /* MessgeShowVC.swift */,
+				FA235D6D283628530071C337 /* NormalCell.xib */,
+				FA235D6E283628530071C337 /* TopTranslucentTableView.swift */,
+			);
+			path = TopTopTranslucentTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA235D71283628530071C337 /* NormalCell.xib in Resources */,
 				E3F9308221A3AF4600259402 /* open_boxA.gif in Resources */,
 				E36C139220A2A6570043DACF /* LaunchScreen.storyboard in Resources */,
 				E3A1059D222E09E20071FF9E /* test.json in Resources */,
@@ -392,6 +413,7 @@
 				E37BC5A02223C04300503F25 /* Const.swift in Sources */,
 				E37BC59B2223BCAA00503F25 /* TBCalendar.swift in Sources */,
 				E37BC59C2223BCAA00503F25 /* TBCalendarDateCell.swift in Sources */,
+				FA235D70283628530071C337 /* MessgeShowVC.swift in Sources */,
 				E37851EC221EE49C00030CF1 /* CalendarView.swift in Sources */,
 				E37DFC35219BFFA800DCC452 /* SlideView.swift in Sources */,
 				E3F9307F21A3AEFF00259402 /* OpenBoxView.swift in Sources */,
@@ -399,7 +421,9 @@
 				E37851EA221EE41E00030CF1 /* UpDownView.swift in Sources */,
 				E37BC59E2223BCAA00503F25 /* TBCalendarHeaderView.swift in Sources */,
 				E37851EE221EEFC100030CF1 /* MyNSString.swift in Sources */,
+				FA235D72283628530071C337 /* TopTranslucentTableView.swift in Sources */,
 				E349BBF621B77AE20079A2DF /* ZHFColor.swift in Sources */,
+				FA235D6F283628530071C337 /* NormalCell.swift in Sources */,
 				E37DFC37219BFFD000DCC452 /* RedVC.swift in Sources */,
 				E39B6F2A222D035A0018A7F9 /* PopProgressBar.swift in Sources */,
 				E3F9308021A3AEFF00259402 /* PopAwayOpenBackGroundView.swift in Sources */,
@@ -575,12 +599,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KF97C6R67W;
+				DEVELOPMENT_TEAM = 8CB6874GM5;
 				INFOPLIST_FILE = ZHFToolBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lighting.com.ZHFToolBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -590,12 +614,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KF97C6R67W;
+				DEVELOPMENT_TEAM = 8CB6874GM5;
 				INFOPLIST_FILE = ZHFToolBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lighting.com.ZHFToolBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

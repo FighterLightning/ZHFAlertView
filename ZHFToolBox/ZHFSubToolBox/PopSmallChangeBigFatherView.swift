@@ -33,12 +33,12 @@ class PopSmallChangeBigFatherView: UIView ,UIGestureRecognizerDelegate{
         WhiteView.layer.masksToBounds = true
         WhiteView.layer.cornerRadius = 10
         self.addSubview(WhiteView)
-        cancelBtn = UIButton.init(type: UIButtonType.custom)
+        cancelBtn = UIButton.init(type: .custom)
         cancelBtn.frame = CGRect.init(x:ScreenWidth/2 - 20, y: WhiteView.frame.maxY + 20, width: 40, height: 40)
         cancelBtn.tag = 1
-        cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: UIControlState.normal)
+        cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: .normal)
         cancelBtn.isHidden = true
-        cancelBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: UIControlEvents.touchUpInside)
+        cancelBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: .touchUpInside)
         self.addSubview(cancelBtn)
         return self
     }

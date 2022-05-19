@@ -272,8 +272,8 @@ class TBCalendarHeaderView: UIView {
     }
     
     func createAttrStr(monthStr: String, yearStr: String) -> NSMutableAttributedString{
-        let monthDict = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 24), NSAttributedStringKey.foregroundColor:ZHFColor.zhf_color(withHex: 0x4F505F)]
-        let yearDict = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14), NSAttributedStringKey.foregroundColor:ZHFColor.zhf_color(withHex: 0x999999)]
+        let monthDict = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 24), NSAttributedString.Key.foregroundColor:ZHFColor.zhf_color(withHex: 0x4F505F)]
+        let yearDict = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor:ZHFColor.zhf_color(withHex: 0x999999)]
         
         let str: String = monthStr + yearStr
         

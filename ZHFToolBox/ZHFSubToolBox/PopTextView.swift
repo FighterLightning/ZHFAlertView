@@ -24,8 +24,8 @@ class PopTextView: PopSmallChangeBigFatherView {
     UIApplication.shared.keyWindow?.addSubview(self.initPopBackGroundView())
         self.isHidden = false
          //按钮不要在动画完成后初始化（否则按钮没点击效果）
-        oneBtn = UIButton.init(type: UIButtonType.custom)
-        otherBtn = UIButton.init(type: UIButtonType.custom)
+        oneBtn = UIButton.init(type: .custom)
+        otherBtn = UIButton.init(type: .custom)
         UIView.animate(withDuration:TimeInterval(defaultTime), animations: {
             self.WhiteView.frame = self.whiteViewEndFrame
         }) { (_) in
@@ -64,9 +64,9 @@ class PopTextView: PopSmallChangeBigFatherView {
         oneBtn.layer.masksToBounds = true
         oneBtn.layer.cornerRadius = 5
         oneBtn.backgroundColor = ZHFColor.orange
-        oneBtn.setTitle("确定", for: UIControlState.normal)
+        oneBtn.setTitle("确定", for: .normal)
         oneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        oneBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        oneBtn.setTitleColor(UIColor.white, for: .normal)
         self.WhiteView.addSubview(oneBtn)
         
         otherBtn.frame = CGRect.init(x:oneBtn.frame.maxX + 10, y: self.WhiteView.frame.height - 55, width: (self.WhiteView.frame.width - 50)/2, height: 40)
@@ -74,15 +74,15 @@ class PopTextView: PopSmallChangeBigFatherView {
         otherBtn.layer.cornerRadius = 5
         otherBtn.backgroundColor = ZHFColor.orange
         otherBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        otherBtn.setTitle("取消", for: UIControlState.normal)
-        otherBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        otherBtn.setTitle("取消", for: .normal)
+        otherBtn.setTitleColor(UIColor.white, for: .normal)
         self.WhiteView.addSubview(otherBtn)
     }
 }
 extension PopTextView:UITextViewDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true);
-        textView.resignFirstResponder;
+        textView.resignFirstResponder()
     }
     func textViewDidChange(_ textView: UITextView) {
         if textView.text == ""{
@@ -98,7 +98,7 @@ extension PopTextView:UITextViewDelegate{
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             self.endEditing(true);
-            textView.resignFirstResponder;
+            textView.resignFirstResponder()
             return false;
         }
         return true;

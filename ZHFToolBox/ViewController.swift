@@ -43,8 +43,8 @@ class ViewController: UIViewController {
         "提示框由小变大弹出（带输入框）",
         "提示框由小变大弹出（单选按钮）",
         "提示框由小变大弹出（多选按钮）",
-        "商品落入盒子的效果",
         "商品弹出盒子的效果",
+        "商品落入盒子的效果",
         "有序弹出一堆框",
         "弹出一个带列表的左滑框",
         "弹出一个带列表的右滑框",
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
         "模拟进度条",
         "单选病情",
         "弹出日历",
-        "直播消息半透明例子"]
+        "直播第一条消息半透明"]
     }
     func addTableView(){
-        tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: UITableViewStyle.plain)
+        tableView = UITableView.init(frame: CGRect.init(x: 0, y: 44, width: ScreenWidth, height: ScreenHeight - 44), style: .plain)
         self.view.addSubview(tableView)
         tableView.backgroundColor = ZHFColor.zhff9_backGroundColor
         tableView.separatorColor = ZHFColor.initString(hex: "cccccc")
@@ -81,7 +81,7 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
         cell?.textLabel?.text = self.dataMarr[indexPath.row] as? String
         cell?.textLabel?.font = UIFont.systemFont(ofSize: 13)
         cell?.textLabel?.textColor = ZHFColor.zhf_randomColor()
-        cell?.selectionStyle = UITableViewCellSelectionStyle.none
+        cell?.selectionStyle = .none
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,16 +108,16 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
         else if indexPath.row == 3 {
             //带图片的弹框
         self.popImageView.addAnimate()
-            self.popImageView.oneBtn.addTarget(self, action: #selector(self.oneBtnClick), for: UIControlEvents.touchUpInside)
-            self.popImageView.otherBtn.addTarget(self, action: #selector(self.otherBtnClick), for: UIControlEvents.touchUpInside)
+            self.popImageView.oneBtn.addTarget(self, action: #selector(self.oneBtnClick), for: .touchUpInside)
+            self.popImageView.otherBtn.addTarget(self, action: #selector(self.otherBtnClick), for: .touchUpInside)
         }
         else if indexPath.row == 4{
            //带输入框的弹框
             self.popTextView.whiteViewEndFrame = CGRect.init(x: 20, y: 100, width: ScreenWidth - 40, height: ScreenHeight - 300)
             self.popTextView.addAnimate()
             self.popTextView.textStr = message
-            self.popTextView.oneBtn.addTarget(self, action: #selector(self.oneBtn4Click), for: UIControlEvents.touchUpInside)
-            self.popTextView.otherBtn.addTarget(self, action: #selector(self.otherBtn4Click), for: UIControlEvents.touchUpInside)
+            self.popTextView.oneBtn.addTarget(self, action: #selector(self.oneBtn4Click), for: .touchUpInside)
+            self.popTextView.otherBtn.addTarget(self, action: #selector(self.otherBtn4Click), for: .touchUpInside)
         }
         else if indexPath.row == 5{
             //单选框的弹框
@@ -193,7 +193,7 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
             progressBar = PopProgressBar()
             progressBar.addAnimate(view: progressBar.initPopBackGroundView())
             displayLink = CADisplayLink.init(target: self, selector: #selector(displayLinkRun))
-            displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.defaultRunLoopMode)
+            displayLink.add(to: RunLoop.current, forMode: .default)
             progressBar.displayLink = displayLink
         }
         else if indexPath.row == 14{
@@ -212,14 +212,14 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
 //            calendarView.smallGreenPoints = [0] //小点数组
             calendarView.addAnimate()
             //点击的是--年--月--日
-            calendarView.clickValueClosure { [weak self] (text) in
+            calendarView.clickValueClosure { (text) in
                 let arr = text!.components(separatedBy:"-")
                 ZHFLog(message: "\(arr[0]).\(arr[1]).\(arr[2])")
               
             }
         }
         else if indexPath.row == 16{
-             self.navigationController?.pushViewController(MessgeAlapaTableView.init(), animated: true)
+             self.navigationController?.pushViewController(MessgeShowVC.init(), animated: true)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -241,25 +241,21 @@ extension ViewController :UITableViewDataSource,UITableViewDelegate
 extension ViewController{
     @objc func oneBtnClick(btn:UIButton){
         //先移除弹出来的图
-        if self.popImageView != nil {
-             self.popImageView.removeFromSuperview()
-        }
+        self.popImageView.removeFromSuperview()
         let oneVC: OneVC = OneVC()
         self.navigationController?.pushViewController(oneVC, animated: true)
     }
     @objc func otherBtnClick(btn:UIButton){
         //先移除弹出来的图
-        if self.popImageView != nil {
-            self.popImageView.removeFromSuperview()
-        }
+        self.popImageView.removeFromSuperview()
         let twoVC: TwoVC = TwoVC()
         self.navigationController?.pushViewController(twoVC, animated: true)
     }
     @objc func oneBtn4Click(btn:UIButton){
-        self.dataMarr.replaceObject(at: 4, with: self.popTextView.textView.text)
+        self.dataMarr.replaceObject(at: 4, with: self.popTextView.textView.text as Any)
         self.popTextView.tapBtnAndcancelBtnClick()
         let indexPath: IndexPath = NSIndexPath.init(row: 4, section: 0) as IndexPath
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     @objc func otherBtn4Click(btn:UIButton){
        self.popTextView.tapBtnAndcancelBtnClick()
@@ -278,7 +274,7 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         self.dataMarr.replaceObject(at: 5, with: content)
         self.popRadioButtonView.tapBtnAndcancelBtnClick()
         let indexPath: IndexPath = NSIndexPath.init(row: 5, section: 0) as IndexPath
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
       //PopCheckboxButtonViewDelegate
     func selectMessage(contentMarr: NSMutableArray) {
@@ -289,13 +285,13 @@ extension ViewController:PopRadioButtonViewDelegate,PopCheckboxButtonViewDelegat
         self.dataMarr.replaceObject(at: 6, with: content)
         self.popCheckboxButtonView.tapBtnAndcancelBtnClick()
         let indexPath: IndexPath = NSIndexPath.init(row: 6, section: 0) as IndexPath
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
      //PopSomeColorViewDelegate
     func selectBtnTag(btnTag:NSInteger) {
         self.dataMarr.replaceObject(at: 9, with: "选中按钮的tag为\(btnTag)")
         let indexPath: IndexPath = NSIndexPath.init(row: 9, section: 0) as IndexPath
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     //SlideWhiteViewSubViewDelegate
     func selectMessage(message: String) {

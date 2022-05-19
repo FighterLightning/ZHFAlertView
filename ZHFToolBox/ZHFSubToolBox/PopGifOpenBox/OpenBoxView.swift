@@ -41,7 +41,7 @@ class OpenBoxView: PopBackGroundView {
         self.WhiteView.addSubview(titleLabel)
         let imageView: UIImageView = UIImageView.init(frame: CGRect.init(x: 0, y: titleHeight, width: self.WhiteView.frame.width, height: self.WhiteView.frame.height - titleHeight))
         imageView.image = UIImage.init(named: "test1")
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         self.WhiteView.addSubview(imageView)
     }

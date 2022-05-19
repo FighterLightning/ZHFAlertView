@@ -39,7 +39,7 @@ class PopTopOrBottomOutView: UIView {
     func addWhiteViewSubView() {
         let imageView: UIImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: whiteView.frame.size.width, height: whiteView.frame.size.height))
         imageView.layer.masksToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage.init(named: "bmw_image")
         whiteView.addSubview(imageView)
         let titleLabel: UILabel = UILabel.init(frame: CGRect.init(x: 5, y: 0, width: whiteView.frame.size.width - 10, height: 50))
@@ -65,10 +65,10 @@ class PopTopOrBottomOutView: UIView {
         self.addSubview(self.whiteView)
         addWhiteViewSubView()
         
-        self.cancelBtn = UIButton.init(type: UIButtonType.custom)
+        self.cancelBtn = UIButton.init(type: .custom)
         UIView.animate(withDuration:0.5, animations: {
             self.whiteView.frame.origin.y = ScreenHeight - 670
-            self.bringSubview(toFront:self.outerImage)
+            self.bringSubviewToFront(self.outerImage)
         }) { (_) in
             UIView.animate(withDuration: 0.2, animations: {
                 self.whiteView.frame.origin.y = ScreenHeight - 530
@@ -79,8 +79,8 @@ class PopTopOrBottomOutView: UIView {
                     self.cancelBtn.isHidden = false
                     self.cancelBtn.frame = CGRect.init(x:self.frame.maxX - 60, y:ScreenHeight - 610, width: 40, height: 40)
                     self.cancelBtn.tag = 1
-                    self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: UIControlState.normal)
-                    self.cancelBtn.addTarget(self, action: #selector(self.cancelBtnClickBottom), for: UIControlEvents.touchUpInside)
+                    self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: .normal)
+                    self.cancelBtn.addTarget(self, action: #selector(self.cancelBtnClickBottom), for: .touchUpInside)
                     self.addSubview(self.cancelBtn)
                 })
             })
@@ -96,10 +96,10 @@ class PopTopOrBottomOutView: UIView {
         self.addSubview(self.whiteView)
         addWhiteViewSubView()
         
-        self.cancelBtn = UIButton.init(type: UIButtonType.custom)
+        self.cancelBtn = UIButton.init(type: .custom)
         UIView.animate(withDuration:0.5, animations: {
             self.whiteView.frame.origin.y = ScreenHeight - 470
-            self.bringSubview(toFront:self.outerImage)
+            self.bringSubviewToFront(self.outerImage)
         }) { (_) in
             UIView.animate(withDuration: 0.2, animations: {
                 self.whiteView.frame.origin.y = ScreenHeight - 610
@@ -109,8 +109,8 @@ class PopTopOrBottomOutView: UIView {
                 }, completion: { (_) in
                     self.cancelBtn.isHidden = false
                     self.cancelBtn.frame = CGRect.init(x:self.frame.maxX - 60, y:ScreenHeight - 610, width: 40, height: 40)
-                    self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: UIControlState.normal)
-                    self.cancelBtn.addTarget(self, action: #selector(self.cancelBtnClickTop), for: UIControlEvents.touchUpInside)
+                    self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: .normal)
+                    self.cancelBtn.addTarget(self, action: #selector(self.cancelBtnClickTop), for: .touchUpInside)
                     self.addSubview(self.cancelBtn)
                 })
             })

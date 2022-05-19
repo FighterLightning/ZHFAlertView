@@ -36,20 +36,20 @@ class PopSomeColorView: UIView {
         self.backgroundColor = backgroundColor1
         self.isHidden = true
         for j in 0 ..< colors.count {
-            let btn :UIButton = UIButton.init(type: UIButtonType.custom)
+            let btn :UIButton = UIButton.init(type: .custom)
             btn.frame = CGRect.init(x: 50 + (10 + btnWH) * CGFloat(j%3), y: ScreenHeight + CGFloat(j/3) * (btnWH + 40), width: btnWH, height:btnWH)
             btn.layer.borderColor = ZHFColor.zhff9_backGroundColor.cgColor
             btn.layer.borderWidth = 4
             btn.backgroundColor = colors[j] as? UIColor;
             btn.tag = j
-            btn.addTarget(self, action: #selector(cancelBtnClick), for: UIControlEvents.touchUpInside)
+            btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
             self.btnMarr.add(btn)
             self.addSubview(btn)
             if j == colors.count - 1{
-                self.cancelBtn = UIButton.init(type: UIButtonType.custom)
+                self.cancelBtn = UIButton.init(type: .custom)
                 self.cancelBtn.frame = CGRect.init(x:ScreenWidth/2 - 20, y: btn.frame.maxY + 40, width: 40, height: 40)
-                self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: UIControlState.normal)
-                self.cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: UIControlEvents.touchUpInside)
+                self.cancelBtn.setImage(UIImage.init(named: "cancel_white"), for: .normal)
+                self.cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
                 self.addSubview(cancelBtn)
             }
         }
@@ -62,7 +62,7 @@ class PopSomeColorView: UIView {
             let btn: UIButton = self.btnMarr[i] as! UIButton
             let btnY : CGFloat = btn.frame.origin.y
             let cancelBtnY :CGFloat =  self.cancelBtn.frame.origin.y
-            UIView.animate(withDuration: self.animateTime, delay: TimeInterval(self.delyTime * CGFloat(i)) , usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: self.animateTime, delay: TimeInterval(self.delyTime * CGFloat(i)) , usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {
                 btn.frame.origin.y = btnY - self.Y
             }, completion: { (_) in
                 self.cancelBtn.transform = CGAffineTransform.init(rotationAngle:0)
@@ -85,7 +85,7 @@ class PopSomeColorView: UIView {
             for i in 0 ..< self.btnMarr.count {
                 let btn: UIButton = self.btnMarr[self.btnMarr.count - i - 1] as! UIButton;
                 let btnY : CGFloat = btn.frame.origin.y;
-                UIView.animate(withDuration: self.animateTime, delay: TimeInterval(self.delyTime * CGFloat(i)) , usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                UIView.animate(withDuration: self.animateTime, delay: TimeInterval(self.delyTime * CGFloat(i)) , usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {
                     btn.frame.origin.y = btnY + self.Y
                 }, completion: { (_) in
                     self.btnMarr = NSMutableArray.init()

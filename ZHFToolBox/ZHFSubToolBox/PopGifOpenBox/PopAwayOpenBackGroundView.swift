@@ -38,7 +38,7 @@ class PopAwayOpenBackGroundView: UIView {
         topView1 = UIImageView.init(frame: CGRect.init(x: ScreenWidth/2 - 10, y: ScreenHeight/2 - 10, width: 20, height: 20))
         topView1.image = self.frames.firstObject as? UIImage
         topView1.isUserInteractionEnabled = true
-        topView1.contentMode = UIViewContentMode.scaleAspectFill
+        topView1.contentMode = .scaleAspectFill
         self.addSubview(topView1)
         return self
     }
@@ -50,7 +50,7 @@ class PopAwayOpenBackGroundView: UIView {
             let AnimationNtimer : NSInteger = 3
             self.topView1.animationImages = self.frames as? [UIImage]//将图片数组加入UIImageView动画数组中
             self.topView1.isUserInteractionEnabled = true
-            self.topView1.contentMode = UIViewContentMode.scaleAspectFill
+            self.topView1.contentMode = .scaleAspectFill
             self.topView1.animationDuration = TimeInterval(AnimationNtimer); //每次动画时长
             self.topView1.startAnimating()
             Timer.scheduledTimer(timeInterval: TimeInterval(AnimationNtimer), target: self, selector: #selector(self.ArrowAnimationPlay), userInfo: nil, repeats: false)

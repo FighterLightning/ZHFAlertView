@@ -43,17 +43,17 @@ class PopDiseaseView: UIView {
         whiteView.addSubview(scrollView)
         for i in 0 ..< arr.count {
             let name: String = arr[i] as! String
-            let btn: UIButton = UIButton.init(type: UIButtonType.custom)
+            let btn: UIButton = UIButton.init(type: .custom)
             let btnW: CGFloat = (ScreenWidth - 40)/3
             btn.frame = CGRect.init(x: 10 + CGFloat(i%3) * (btnW + 10), y: 15 + CGFloat(i/3 * 50), width: btnW, height: 44)
-            btn.setTitle(name, for: UIControlState.normal)
-            btn.setTitleColor(ZHFColor.zhf33_titleTextColor, for: UIControlState.normal)
+            btn.setTitle(name, for: .normal)
+            btn.setTitleColor(ZHFColor.zhf33_titleTextColor, for: .normal)
             btn.layer.masksToBounds = true
             btn.layer.cornerRadius = 10
             btn.layer.borderWidth = 1
             btn.layer.borderColor = ZHFColor.zhf_lineColor.cgColor
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
+            btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
             scrollView.addSubview(btn)
         }
         
@@ -61,36 +61,36 @@ class PopDiseaseView: UIView {
         lineView.frame = CGRect.init(x: 0, y: scrollView.frame.maxY + 20, width: ScreenWidth, height: 1)
         lineView.backgroundColor = ZHFColor.zhfcc_lineColor
         whiteView.addSubview(lineView)
-        let cancelBtn: UIButton = UIButton.init(type: UIButtonType.custom)
+        let cancelBtn: UIButton = UIButton.init(type: .custom)
         cancelBtn.frame = CGRect.init(x: 25, y: lineView.frame.maxY + 10, width: ScreenWidth/2 - 37.5, height: 40)
-        cancelBtn.setTitle("取消", for: UIControlState.normal)
+        cancelBtn.setTitle("取消", for: .normal)
         cancelBtn.backgroundColor = UIColor.red
-        cancelBtn.setTitleColor(ZHFColor.white, for: UIControlState.normal)
+        cancelBtn.setTitleColor(ZHFColor.white, for: .normal)
         cancelBtn.layer.masksToBounds = true
         cancelBtn.layer.cornerRadius = 20
-        cancelBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: UIControlEvents.touchUpInside)
+        cancelBtn.addTarget(self, action: #selector(tapBtnAndcancelBtnClick), for: .touchUpInside)
         whiteView.addSubview(cancelBtn)
-        okBtn = UIButton.init(type: UIButtonType.custom)
+        okBtn = UIButton.init(type: .custom)
         okBtn.frame = CGRect.init(x:ScreenWidth/2 + 12.5, y: lineView.frame.maxY + 10, width: ScreenWidth/2 - 37.5, height: 40)
-        okBtn.setTitle("确认修改", for: UIControlState.normal)
+        okBtn.setTitle("确认修改", for: .normal)
         okBtn.backgroundColor = UIColor.red
-        okBtn.setTitleColor(ZHFColor.white, for: UIControlState.normal)
+        okBtn.setTitleColor(ZHFColor.white, for: .normal)
         okBtn.layer.masksToBounds = true
         okBtn.isUserInteractionEnabled = false
         okBtn.alpha = 0.5
         okBtn.layer.cornerRadius = 20
-        okBtn.addTarget(self, action: #selector(okBtnClick), for: UIControlEvents.touchUpInside)
+        okBtn.addTarget(self, action: #selector(okBtnClick), for: .touchUpInside)
         whiteView.addSubview(okBtn)
     }
     @objc func btnClick(btn:UIButton){
         if radioBtn != nil {
             radioBtn.backgroundColor = UIColor.white
-            radioBtn.setTitleColor(ZHFColor.zhf33_titleTextColor, for: UIControlState.normal)
+            radioBtn.setTitleColor(ZHFColor.zhf33_titleTextColor, for: .normal)
         }
         okBtn.isUserInteractionEnabled = true
         okBtn.alpha = 1
         btn.backgroundColor = UIColor.red
-        btn.setTitleColor(UIColor.white, for: UIControlState.normal)
+        btn.setTitleColor(UIColor.white, for: .normal)
         radioBtn = btn
     }
     @objc func okBtnClick(btn:UIButton){
